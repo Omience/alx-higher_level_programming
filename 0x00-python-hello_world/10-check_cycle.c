@@ -1,26 +1,22 @@
 #include "lists.h"
 
 /**
- * check_cycle - checks if a linked list contains a cycle
- * @list: linked list to check
- *
- * Return: 0 if the list does not have a cycle and returns 1 if it does.
+ * check_cycle - check if list is cycle
+ * @list: type listint_t
+ * Return: always int
+ * case: 1 true, 0 false
  */
+
 int check_cycle(listint_t *list)
 {
-	listint_t *slow = list;
-	listint_t *quick = list;
+	listint_t *turtle = list, *hare = list;
 
-	if (!list)
-		return (0);
-
-	while (slow && quick && quick->next)
+	while (turtle != NULL && hare != NULL && hare->next != NULL)
 	{
-		slow = slow->next;
-		quick = quick->next->next;
-		if (slow == quick)
+		turtle = turtle->next;
+		hare = hare->next->next;
+		if (turtle == hare)
 			return (1);
 	}
-
 	return (0);
 }
