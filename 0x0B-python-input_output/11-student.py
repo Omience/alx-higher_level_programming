@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Defines a class Student."""
+"""Student to disk and reload"""
 
 
 class Student:
     """Represent a student."""
 
     def __init__(self, first_name, last_name, age):
-        """Initialize a new Student.
+        """Initializes a new Student.
         Args:
             first_name (str): The first name of the student.
             last_name (str): The last name of the student.
@@ -20,7 +20,6 @@ class Student:
         """Get a dictionary representation of the Student.
         If attrs is a list of strings, represents only those attributes
         included in the list.
-        
         Args:
             attrs (list): (Optional) The attributes to represent.
         """
@@ -31,9 +30,9 @@ class Student:
 
     def reload_from_json(self, json):
         """Replace all attributes of the Student.
-        
         Args:
-            json (dict): The key/value pairs to replace attributes with.
+            json (dict): The key/value pairs to
+            replace attributes with.
         """
         for k, v in json.items():
             setattr(self, k, v)
